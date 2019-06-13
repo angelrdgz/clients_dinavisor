@@ -503,8 +503,8 @@ Spline Area
 			}
 		},
 		series: [
-			{ valueField: "y2005", name: "Microsoft", color: '#FF404B', opacity: 0.8 },
-			{ valueField: "y2004", name: "Google Inc", color: '#8D82B5', opacity: 0.8 }
+			{ valueField: "y2005", name: "Microsoft", color: '#448acf', opacity: 0.6 },
+			{ valueField: "y2004", name: "Google Inc", color: '#72af01', opacity: 0.6 }
 		],
 		legend: {
 			/*visible: true,

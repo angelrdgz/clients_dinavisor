@@ -9753,3 +9753,15 @@ html #auth .logo {
   display: block;
   margin: 15px auto 40px;
 }
+html #app .left-panel .logo {
+  position: absolute;
+  bottom: 10px;
+  left: calc(50% - 50px);
+  width: 100px;
+  display: block;
+  margin: 20px auto;
+  opacity: 0.2;
+}
+html #app .left-panel.collapsed .logo {
+  visibility: hidden;
+}

@@ -38,4 +38,23 @@ html{
             margin: 15px auto 40px;
         }
     }
+
+    #app{
+        .left-panel{
+            .logo{
+                position: absolute;
+                bottom: 10px;
+                left: calc(50% - 50px);
+                width: 100px;
+                display: block;
+                margin: 20px auto;
+                opacity: 0.2;
+            }
+        }
+        .left-panel.collapsed{
+            .logo{
+                visibility: hidden;
+            }
+        }
+    }
 }

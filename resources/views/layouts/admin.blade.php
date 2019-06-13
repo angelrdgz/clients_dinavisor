@@ -6,12 +6,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
 	<title>Dinavisor</title>
 
 	<meta name="description" content="">
     <meta name="author" content="Akshay Kumar">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('css/bootstrap/bootstrap.min.css')}}">
 
 	<!-- Calendar Styling  -->
     <link rel="stylesheet" href="{{asset('css/plugins/calendar/calendar.css')}}" />
@@ -23,7 +25,7 @@
     <link rel="stylesheet" href="{{asset('css/app/app.v1.css')}}" />
 
 </head>
-<body data-ng-app>
+<body id="app">
 
 	
     <!-- Preloader -->
@@ -50,9 +52,10 @@
     		
             <div class="user text-center">
                   <img src="{{asset('imgs/avtar/user.png')}}" class="img-circle" alt="...">
-                  <h4 class="user-name">Akshay Kumar</h4>
+                  <h4 class="user-name">{{Auth::user()->name}}</h4>
+                  <h6>{{Auth::user()->client->nombre}}</h6>
                   
-                  <div class="dropdown user-login">
+                  <!--<div class="dropdown user-login">
                   <button class="btn btn-xs dropdown-toggle btn-rounded" type="button" data-toggle="dropdown" aria-expanded="true">
                     <i class="fa fa-circle status-icon available"></i> Available <i class="fa fa-angle-down"></i>
                   </button>
@@ -61,15 +64,17 @@
                     <li role="presentation"><a role="menuitem" href="#"><i class="fa fa-circle status-icon invisibled"></i> Invisible</a></li>
                     <li role="presentation"><a role="menuitem" href="#"><i class="fa fa-circle status-icon signout"></i> Sign out</a></li>
                   </ul>
-                  </div>	 
+                  </div>-->	 
             </div>
             
             
             
             <nav class="navigation">
             	<ul class="list-unstyled">
-                	<li class="active"><a href="#"><i class="fa fa-bookmark-o"></i><span class="nav-label">Dashboard</span></a></li>
-                    <li class="has-submenu"><a href="#"><i class="fa fa-comment-o"></i> <span class="nav-label">Widgets &amp; Apps</span></a>
+                  <li class="active"><a href="#"><i class="fa fa-bookmark-o"></i><span class="nav-label">Dashboard</span></a></li>
+                  <li class=""><a href="#"><i class="fa fa-file"></i><span class="nav-label">Reportes</span></a></li>
+                  <li class=""><a href="#"><i class="fa fa-users"></i><span class="nav-label">Usuarios</span></a></li>
+                    <!--<li class="has-submenu"><a href="#"><i class="fa fa-comment-o"></i> <span class="nav-label">Widgets &amp; Apps</span></a>
                     	<ul class="list-unstyled">
                         	<li><a href="email.html">Email</a></li>
                             <li><a href="timeline.html">Timeline</a></li>
@@ -124,8 +129,9 @@
                             <li><a href="blank.html">Blank Page</a></li>
                             
                         </ul>
-                    </li>
+                    </li>-->
                 </ul>
+                <img src="{{asset('imgs/logo_white.png')}}" class="logo" alt="">
             </nav>
             
     </aside>
@@ -148,7 +154,7 @@
             <nav class=" navbar-default hidden-xs" role="navigation">
                 <ul class="nav navbar-nav">
                 <li><a href="#">Link</a></li>
-                <li class="dropdown">
+                <!--<li class="dropdown">
                   <a data-toggle="dropdown" class="dropdown-toggle" href="#">Dropdown <span class="caret"></span></a>
                   <ul role="menu" class="dropdown-menu">
                     <li><a href="#">Action</a></li>
@@ -159,7 +165,7 @@
                     <li class="divider"></li>
                     <li><a href="#">One more separated link</a></li>
                   </ul>
-                </li>
+                </li>-->
               </ul>
             </nav>
             
@@ -360,7 +366,7 @@
             
             
             <div class="row">
-            	<div class="col-lg-8">
+            	<div class="col-lg-12">
                 
                 	<div class="panel panel-default">
                       <div class="panel-heading clean">
@@ -386,7 +392,7 @@
                     </div>
 
                 </div>
-                <div class="col-lg-4">
+                <!--<div class="col-lg-4">
                 
                 	<div class="panel panel-default" data-ng-controller="TodoCtrl">
                     	<div class="panel-heading un-bold"><h4>ToDo List <small class="text-gray"> remaining</small>  <a href="" data-ng-click="archive()" class="pull-right"><small>archive</small></a></h4></div>
@@ -416,7 +422,7 @@
                         
                     </div>
                 
-                </div>
+                </div>-->
             </div>
             
             <div class="row">
@@ -780,7 +786,7 @@
         
         
         <footer class="container-fluid footer">
-        	Copyright &copy; 2014 <a href="http://freakpixels.com/" target="_blank">FreakPixels</a>
+        	Copyright &copy; 2019 <a href="http://dinavisor.com/" target="_blank">Dinavisor</a>
             <a href="#" class="pull-right scrollToTop"><i class="fa fa-chevron-up"></i></a>
         </footer>
         
@@ -790,7 +796,8 @@
     
     
     <!-- JQuery v1.9.1 -->
-    <script src="{{asset('js/jquery/jquery-1.9.1.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('js/jquery/jquery_1.9.1.min.js')}} " type="text/javascript"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{asset('js/plugins/underscore/underscore-min.js')}}"></script>
     <!-- Bootstrap -->
     <script src="{{asset('js/bootstrap/bootstrap.min.js')}}"></script>
